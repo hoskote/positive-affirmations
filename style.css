@@ -1,0 +1,164 @@
+/* Custom styles for positive affirmations app */
+
+:root {
+    --electric-blue: #00D2FF;    /* Electric Blue - freedom */
+    --ocean-blue: #3A7BD5;      /* Ocean Blue - calm energy */
+    --mint-green: #00F5A0;      /* Mint Green - freshness */
+    --turquoise: #00D4AA;       /* Turquoise - healing vibes */
+    --tropical-yellow: #FFD93D; /* Tropical Yellow - happiness */
+    --vibrant-gradient: linear-gradient(135deg, var(--electric-blue) 0%, var(--ocean-blue) 50%, var(--turquoise) 100%);
+    --accent-gradient: linear-gradient(45deg, var(--mint-green), var(--tropical-yellow));
+    --soft-glow: 0 0 20px rgba(0, 210, 255, 0.3);
+}
+
+body {
+    background: var(--vibrant-gradient);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Welcome section styling */
+.text-gradient {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.welcome-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Affirmation card styling */
+.affirmation-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 20px !important;
+    transition: all 0.3s ease;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.affirmation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+}
+
+/* Affirmation content styling */
+.affirmation-content {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.initial-message {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Generate button styling */
+.generate-button {
+    border-radius: 50px !important;
+    transition: all 0.3s ease;
+    background: var(--accent-gradient) !important;
+    border: none !important;
+    color: #000 !important;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 25px rgba(0, 245, 160, 0.3);
+}
+
+.generate-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--soft-glow), 0 12px 35px rgba(0, 245, 160, 0.4);
+    background: linear-gradient(45deg, var(--turquoise), var(--electric-blue)) !important;
+}
+
+.generate-button:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+.generate-button:disabled {
+    opacity: 0.7;
+    transform: none !important;
+    box-shadow: 0 4px 15px rgba(0, 245, 160, 0.2);
+}
+
+/* Loading state styling */
+.loading-content {
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Quote styling */
+.blockquote p {
+    line-height: 1.6;
+    font-style: italic;
+    position: relative;
+}
+
+/* Counter styling */
+#affirmation-counter {
+    font-size: 1.1em;
+    color: var(--tropical-yellow);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .affirmation-card .card-body {
+        padding: 2rem !important;
+    }
+    
+    .generate-button {
+        font-size: 1rem;
+        padding: 0.75rem 2rem !important;
+    }
+    
+    #affirmation-text {
+        font-size: 1.25rem !important;
+    }
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Additional glow effects for interactive elements */
+.fas {
+    filter: drop-shadow(0 0 3px rgba(0, 210, 255, 0.5));
+}
+
+/* Footer styling */
+footer {
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+}
